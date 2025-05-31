@@ -3,44 +3,46 @@ package com.market.market.adapter;
 import org.springframework.stereotype.Component;
 
 import com.market.market.constants.ProductConstants;
-import com.market.market.dto.ProductDto;
+import com.market.market.model.dto.ProductDto;
 import lombok.NoArgsConstructor;
-import com.market.market.entity.ProductEntity;
+import com.market.market.model.entity.ProductEntity;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import com.market.market.response.ProductResponse;
+import com.market.market.model.response.ProductResponse;
 
 
 @Component
 @NoArgsConstructor
 public class ProductAdapter {
 
-    public ProductEntity toEntity(ProductResponse response) {
+    public ProductEntity fromResponseToEntity(ProductResponse response) {
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
-    public ProductResponse toResponse(ProductEntity entity) {
+    public ProductResponse fromEntityToResponse(ProductEntity entity) {
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
-    public List<ProductEntity> toEntity(List<ProductResponse> responses) {
+    public List<ProductEntity> fromResponseToEntity(List<ProductResponse> responses) {
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
-    public List<ProductResponse> toResponse(List<ProductEntity> entities) {
+    public List<ProductResponse> fromEntityToResponse(List<ProductEntity> entities) {
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
-    public List<ProductDto> toDto(List<ProductEntity> entities) {
+    public List<ProductDto> fromEntityToDto(List<ProductEntity> entities) {
         if (entities.isEmpty())
-            return entities;
+            return new ArrayList<>();
         
         return entities.stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
+                .map(this::fromEntityToDto)
+                .toList();
     }
 
-    public ProductDto toDto(ProductEntity entity) {
+    public ProductDto fromEntityToDto(ProductEntity entity) {
         if (entity == null) 
             return null;
 
@@ -55,16 +57,16 @@ public class ProductAdapter {
         return dto;
     }
 
-    public List<ProductEntity> toEntity(List<ProductDto> dtos) {
+    public List<ProductEntity> fromDtoToEntity(List<ProductDto> dtos) {
         if (dtos.isEmpty())
-            return dtos;
+            return new ArrayList<>();
         
         return dtos.stream()
-                .map(this::toEntity)
-                .collect(Collectors.toList());
+                .map(this::fromDtoToEntity)
+                .toList();
     }
 
-    public ProductEntity toEntity(ProductDto dto) {
+    public ProductEntity fromDtoToEntity(ProductDto dto) {
         if (dto == null)
             return null;
 
@@ -79,16 +81,16 @@ public class ProductAdapter {
         return entity;
     }
 
-    public List<ProductResponse> toResponse(List<ProductDto> dtos) {
+    public List<ProductResponse> fromDtoToResponse(List<ProductDto> dtos) {
         if (dtos.isEmpty())
-            return dtos;
+            return new ArrayList<>();
         
         return dtos.stream()
-                .map(this::toResponse)
-                .collect(Collectors.toList());
+                .map(this::fromDtoToResponse)
+                .toList();
     }
 
-    public ProductResponse toResponse(ProductDto dto) {
+    public ProductResponse fromDtoToResponse(ProductDto dto) {
         if (dto == null)
             return null;
 

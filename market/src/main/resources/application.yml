@@ -1,6 +1,9 @@
 spring:
     application:
         name: market
+    graphql:
+        graphiql:
+            enabled: true
     datasource:
         driverClassName: org.h2.Driver
         password: ''
@@ -19,8 +22,3 @@ spring:
             hibernate:
                 format-sql: true
         show-sql: true
-
-spring:
-  graphql:
-    graphiql:
-      enabled: true

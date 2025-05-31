@@ -5,7 +5,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
-import com.market.market.dto.ProductResponse;
+import com.market.market.model.response.ProductResponse;
 import org.springframework.graphql.data.method.annotation.Argument;
 
 @Controller

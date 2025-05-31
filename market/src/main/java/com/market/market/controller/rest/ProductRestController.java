@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
-import com.market.market.response.ProductResponse;
+import com.market.market.model.response.ProductResponse;
 
 
 @Slf4j
