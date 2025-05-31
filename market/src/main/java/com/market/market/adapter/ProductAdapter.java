@@ -5,35 +5,42 @@ import org.springframework.stereotype.Component;
 import com.market.market.constants.ProductConstants;
 import com.market.market.model.dto.ProductDto;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import com.market.market.model.entity.ProductEntity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import com.market.market.model.response.ProductResponse;
 
 
+@Slf4j
 @Component
 @NoArgsConstructor
 public class ProductAdapter {
 
     public ProductEntity fromResponseToEntity(ProductResponse response) {
+        log.warn("Converting ProductResponse to ProductEntity is not permitted");
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
     public ProductResponse fromEntityToResponse(ProductEntity entity) {
+        log.warn("Converting ProductEntity to ProductResponse is not permitted");
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
     public List<ProductEntity> fromResponseToEntity(List<ProductResponse> responses) {
+        log.warn("Converting ProductResponse list to ProductEntity list is not permitted");
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
     public List<ProductResponse> fromEntityToResponse(List<ProductEntity> entities) {
+        log.warn("Converting ProductEntity list to ProductResponse list is not permitted");
         throw new UnsupportedOperationException(ProductConstants.PRODUCT_ADAPTER_NOT_PERMITTED);
     }
 
     public List<ProductDto> fromEntityToDto(List<ProductEntity> entities) {
+        log.info("Converting ProductEntity list to ProductDto list");
         if (entities.isEmpty())
             return new ArrayList<>();
         
@@ -43,6 +50,7 @@ public class ProductAdapter {
     }
 
     public ProductDto fromEntityToDto(ProductEntity entity) {
+        log.info("Converting ProductEntity to ProductDto");
         if (entity == null) 
             return null;
 
@@ -58,6 +66,7 @@ public class ProductAdapter {
     }
 
     public List<ProductEntity> fromDtoToEntity(List<ProductDto> dtos) {
+        log.info("Converting ProductDto list to ProductEntity list");
         if (dtos.isEmpty())
             return new ArrayList<>();
         
@@ -67,6 +76,7 @@ public class ProductAdapter {
     }
 
     public ProductEntity fromDtoToEntity(ProductDto dto) {
+        log.info("Converting ProductDto to ProductEntity");
         if (dto == null)
             return null;
 
@@ -82,6 +92,7 @@ public class ProductAdapter {
     }
 
     public List<ProductResponse> fromDtoToResponse(List<ProductDto> dtos) {
+        log.info("Converting ProductDto list to ProductResponse list");
         if (dtos.isEmpty())
             return new ArrayList<>();
         
@@ -91,6 +102,7 @@ public class ProductAdapter {
     }
 
     public ProductResponse fromDtoToResponse(ProductDto dto) {
+        log.info("Converting ProductDto to ProductResponse");
         if (dto == null)
             return null;
 

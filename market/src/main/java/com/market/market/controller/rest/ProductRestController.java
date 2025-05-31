@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.market.market.service.IProductService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,6 @@ import java.util.List;
 import com.market.market.model.response.ProductResponse;
 
 
-@Slf4j
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
