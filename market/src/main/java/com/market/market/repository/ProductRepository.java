@@ -1,12 +1,30 @@
 package com.market.market.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import com.market.market.model.entity.ProductEntity;
 
+import java.util.List;
+import java.util.Optional;
 
+
+@Slf4j
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+@RequiredArgsConstructor
+public class ProductRepository {
+    private final IProductRepository iProductRepository;
+    
+    public List<ProductEntity> findAll() {
+        log.info("Fetching all products from the repository");
+        return iProductRepository.findAll();
+    }
+
+    public Optional<ProductEntity> findById(Long id) {
+        log.info("Fetching product with ID: {}", id);
+        return iProductRepository.findById(id);
+    }
 
 }
